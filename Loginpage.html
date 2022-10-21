@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Login page</title>
+	<script type="text/javascript" src="none.js" defer></script>
+</head>
+<style type="text/css">
+	.full{
+	height: 100vh;
+	width: 100vw;
+	background: url("images (1).jpeg");
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	}
+	.box{
+		width: 40%;
+		height: 60%;
+		min-width: 500px;
+		display: flex;
+		background: rgba(0, 0, 0, 0.8);
+		border-radius: 20px;
+		align-items: center;
+		justify-content: center;
+	}
+	.Elements{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		row-gap: 30px;
+		position: relative;		
+	}
+	.red{
+		box-shadow: 1px 1px 12px 1px red,-1px -1px 12px 1px red;
+	}
+	.Boxshadow {
+		box-shadow: 1px 1px 12px 1px rgba(0, 0, 256, 0.9),-1px -1px 12px 1px rgba(0, 0, 256, 0.9);
+	}
+	input{
+		overflow: auto;
+		background: inherit;
+		outline-width: 0%;
+		padding: 13px 70px 13px 70px;
+		border: none;
+	    outline-width: 0px;
+		border-radius: 20px;
+		font-size: 20px;
+		font-weight: 700;
+		color: white;
+		}
+		.heading {
+			visibility: hidden;
+		}
+		.hclass{
+			color: blue;
+			visibility: visible;
+		}
+		.bclass {
+			box-shadow: 1px 1px 12px 1px blue,-1px -1px 12px 1px blue;
+			color: white;
+			background-color: blue;
+			cursor: pointer;
+		}
+		.Button {
+			background: rgba(0, 0, 256);
+		opacity: 0.6;
+		}
+		input::after {
+			background: whitesmoke;
+			height: 100px;
+			width: 100px;
+		}
+		@keyframes first{
+			0%{
+				
+			}
+			50%{align-self: center;}
+			100%{
+				align-self: flex-start;
+			}
+		}
+		.show {
+			color: red;
+		}
+</style>
+<body>
+<div class="full">
+	<div class="box" >
+		<form onsubmit="return validate()">
+			<div class="Elements">
+		<h1 align="center" class="heading">Hello </h1>
+		<input type="text" name="" placeholder="Username" required maxlength="15" class="username Boxshadow" onkeyup="input(0)">
+		<input type="password" name="" placeholder="password" required maxlength="15" minlength="8" class="password Boxshadow" onkeyup="input(1)">
+		<input type="submit" value="Login" class="Button"  onclick="myfunction()">
+	</div>
+	</form>
+	</div>
+</div>
+<script type="text/javascript" defer>
+	let name=prompt("what's your name?","arumuga").toUpperCase();
+	let heading=document.querySelector('.heading');
+	heading.innerHTML += name;
+	let username = document.querySelector(".username");
+	let password=document.querySelector(".password");
+	let button=document.querySelector(".Button");
+	var inputvar=[username,password];
+	function input(x) {
+
+				if(inputvar[x].value.length<8) {
+			inputvar[x].classList.remove("Boxshadow");
+			inputvar[x].classList.add("red");
+			console.log("executing red");
+			button.classList .add("Button");
+			heading.classList.remove("hclass");
+			button.classList.remove("bclass");
+		}
+		else {inputvar[x].classList.add("Boxshadow");
+		console.log("executing blue");}
+		if(username.value.length>=8 && password.value.length>=8) {
+		console.log("color changing");
+		button.classList.remove("Button");
+		heading.classList.add("hclass");
+		button.classList.add("bclass");
+		map.forEach (myfunction);
+	}
+	}
+	function validate() {
+			if(username.value.length<8 || password.value.length<8) {
+			alert("incorrect login details");
+			return false;
+		}
+		else {
+			console.log("login successful");
+			confirm("are you sure want to submit?");
+			return true;}
+		}
+		const map = new Map([ ["arumuga","21scs34"],["devak","21scs35"],["dinesh","21scs36"],["samsul","21scs37"],["velmuruga" , "21scs345"]
+			]);
+
+		
+		function myfunction(key,value)
+		{
+			console.log(key+" is the key of"+value+" value");
+			if(key==password.value && value == username.value)
+				console.log("successful");
+		}
+		
+	</script>
+</body>
+</html>
